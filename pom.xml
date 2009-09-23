@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>no.eivindw</groupId>
+   <artifactId>simage</artifactId>
+   <packaging>jar</packaging>
+   <version>1.0-SNAPSHOT</version>
+   <name>Scala Image Library</name>
+   <inceptionYear>2009</inceptionYear>
+   <properties>
+      <scala.version>2.7.5</scala.version>
+   </properties>
+   <scm>
+      <connection>scm:svn:http://boss.bekk.no/repos/projects/eivindw/master/simage</connection>
+      <developerConnection>scm:svn:https://boss.bekk.no/repos/projects/eivindw/master/simage</developerConnection>
+      <tag>HEAD</tag>
+   </scm>
+   <developers>
+      <developer>
+         <id>eivindw</id>
+         <name>Eivind Barstad Waaler</name>
+         <url>http://tihlde.org/~eivindw</url>
+      </developer>
+   </developers>
+   <repositories>
+      <repository>
+         <id>scala-tools.org</id>
+         <name>Scala-Tools Maven2 Repository</name>
+         <url>http://scala-tools.org/repo-releases</url>
+      </repository>
+   </repositories>
+   <pluginRepositories>
+      <pluginRepository>
+         <id>scala-tools.org</id>
+         <name>Scala-Tools Maven2 Repository</name>
+         <url>http://scala-tools.org/repo-releases</url>
+      </pluginRepository>
+   </pluginRepositories>
+   <dependencies>
+      <dependency>
+         <groupId>org.scala-lang</groupId>
+         <artifactId>scala-library</artifactId>
+         <version>${scala.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>org.scala-tools.testing</groupId>
+         <artifactId>scalatest</artifactId>
+         <version>0.9.5</version>
+         <scope>test</scope>
+      </dependency>
+   </dependencies>
+   <build>
+      <sourceDirectory>src/main/scala</sourceDirectory>
+      <testSourceDirectory>src/test/scala</testSourceDirectory>
+      <plugins>
+         <plugin>
+            <groupId>org.scala-tools</groupId>
+            <artifactId>maven-scala-plugin</artifactId>
+            <executions>
+               <execution>
+                  <goals>
+                     <goal>compile</goal>
+                     <goal>testCompile</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+      </plugins>
+   </build>
+   <reporting>
+      <plugins>
+         <plugin>
+            <groupId>org.scala-tools</groupId>
+            <artifactId>maven-scala-plugin</artifactId>
+         </plugin>
+      </plugins>
+   </reporting>
+</project>
