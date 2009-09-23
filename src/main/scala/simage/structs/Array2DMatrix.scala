@@ -13,7 +13,7 @@ abstract class Array2DMatrix[T](cols: Int, els: List[T]) extends Matrix[T] {
    override def toString: String = "Array2D rows:" + nRows + " cols:" + nCols + "\n" + arr.toString
 
    def -(other: Matrix[T]): Matrix[T] = (this, other) match {
-      case (t: Array2DMatrix[T], o: Array2DMatrix[T]) => {
+      case (t: Array2DMatrix[_], o: Array2DMatrix[_]) => {
          val thisList = t.arr.toList
          val otherList = o.arr.toList
          toMatrix(nCols, List.map2(thisList, otherList)(subElems(_, _)))

@@ -18,22 +18,22 @@ class StandardTest extends Suite {
       6, 6, 7)))
 
    def testAvgFilter {
-      assert(imgExp == avg(img, se))
+      assert(imgExp == avgSimple(img, se))
    }
 
    def testAvgLoadSave {
       val img = loadImageCP("/cell.jpg")
-      avg(img, se)
+      avgSimple(img, se)
       //saveImage(avg(img, se), "target/cell_avg.jpg")
    }
 
    def testDistAvgLoadSave {
       val img = loadImageCP("/cell.jpg")
-      avgDist(img, se)
+      avg(img, se)
       //saveImage(avg(img, se), "target/cell_avg.jpg")
    }
 
    def testDistributedAvg {
-      assert(imgExp == avgDist(img, se))
+      assert(imgExp == avg(img, se))
    }
 }

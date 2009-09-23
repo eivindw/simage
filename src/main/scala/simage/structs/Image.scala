@@ -43,7 +43,7 @@ abstract class Image extends Splittable[ImagePart] {
 
    def hasPoint(x: Int, y: Int) = x >= 0 && x < width && y >= 0 && y < height
 
-   override def toString = "Image " + width + "x" + height + "\n" + data.toString
+   override def toString = "Image " + width + "x" + height
 }
 
 case class GrayScaleImage(d: Matrix[Int]) extends Image {

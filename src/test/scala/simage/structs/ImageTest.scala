@@ -50,9 +50,8 @@ class ImageTest extends Suite {
    def testSplitImage {
       val regions = img.split
 
-      assert(regions(0).win == ((0, 0), (0, 2)))
-      assert(regions(1).win == ((1, 0), (1, 2)))
-      assert(regions(2).win == ((2, 0), (2, 2)))
+      assert(regions.size == 1)
+      assert(regions.first.win == ((0, 0), (2, 2)))
    }
 
    def testPartialSeOpAvg {

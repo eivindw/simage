@@ -17,7 +17,7 @@ abstract class ListMatrix[T](els: List[List[T]]) extends Matrix[T] {
    def +(other: ListMatrix[T]): ListMatrix[T] = matOp(other, addElems)
 
    def -(other: Matrix[T]): Matrix[T] = other match {
-      case o: ListMatrix[T] => matOp(o, subElems)
+      case o: ListMatrix[_] => matOp(o, subElems)
    }
 
    def *(other: ListMatrix[T]): ListMatrix[T] = {
