@@ -1,5 +1,7 @@
 package simage.structs
 
+import parallel.Splittable
+
 class ImagePart(p1: (Int, Int), p2: (Int, Int)) {
    val win = (p1, p2)
 }

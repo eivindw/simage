@@ -1,4 +1,4 @@
-package simage.structs
+package simage.parallel
 
 trait Splittable[T] {
    def split: Array[T]

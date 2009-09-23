@@ -1,4 +1,4 @@
-package simage.morphology
+package simage.operations
 
 import org.scalatest.Suite
 import structs.StrElType._

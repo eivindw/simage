@@ -3,13 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" readonly="true" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simage.iws" afterPath="$PROJECT_DIR$/simage.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/simage/structs/Array2DMatrix.scala" afterPath="$PROJECT_DIR$/src/main/scala/simage/structs/Array2DMatrix.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/simage/morphology/Morphology.scala" afterPath="$PROJECT_DIR$/src/main/scala/simage/operations/Morphology.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/simage/structs/Image.scala" afterPath="$PROJECT_DIR$/src/main/scala/simage/structs/Image.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/simage/operations/StandardTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/simage/operations/StandardTest.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/simage/structs/ListMatrix.scala" afterPath="$PROJECT_DIR$/src/main/scala/simage/structs/ListMatrix.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/simage/structs/Splittable.scala" afterPath="$PROJECT_DIR$/src/main/scala/simage/parallel/Splittable.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/simage/morphology/BasicMorphologyTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/simage/operations/BasicMorphologyTest.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/simage/operations/Standard.scala" afterPath="$PROJECT_DIR$/src/main/scala/simage/operations/Standard.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simage.ipr" afterPath="$PROJECT_DIR$/simage.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/simage/structs/ImageTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/simage/structs/ImageTest.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/simage/morphology/PerfTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/simage/operations/PerfTest.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/simage/parallel/Operations.scala" />
     </list>
     <ignored path=".idea/workspace.xml" />
   </component>
@@ -87,7 +87,7 @@
       <file leaf-file-name="StandardTest.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/simage/operations/StandardTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="26" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0">
+            <state line="11" column="14" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -114,43 +114,52 @@
       <file leaf-file-name="Standard.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/simage/operations/Standard.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="3" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0">
+            <state line="12" column="4" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Morphology.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/simage/morphology/Morphology.scala">
+      <file leaf-file-name="BasicMorphologyTest.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/simage/operations/BasicMorphologyTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="7" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0">
+            <state line="5" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListMatrixTest.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/simage/structs/ListMatrixTest.scala">
+      <file leaf-file-name="PerfTest.scala" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/simage/operations/PerfTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="16" selection-start="680" selection-end="680" vertical-scroll-proportion="0.0">
+            <state line="7" column="0" selection-start="119" selection-end="119" vertical-scroll-proportion="0.20895523">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Image.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Operations.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/simage/parallel/Operations.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Image.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/simage/structs/Image.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="19" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.507109">
+            <state line="45" column="19" selection-start="1148" selection-end="1148" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Splittable.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/simage/structs/Splittable.scala">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/simage/parallel/Splittable.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="18" selection-start="41" selection-end="42" vertical-scroll-proportion="0.0">
+            <state line="2" column="18" selection-start="42" selection-end="43" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -310,40 +319,6 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="morphology" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="simage" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="simage" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="simage" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="src" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="test" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="scala" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="simage" />
-          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
           <option name="myItemId" value="io" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
@@ -468,7 +443,7 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="operations" />
+          <option name="myItemId" value="parallel" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -502,7 +477,7 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="morphology" />
+          <option name="myItemId" value="operations" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -573,24 +548,24 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="options.lastSelected" value="com.intellij.openapi.vcs.changes.ui.IgnoredSettingsPanel" />
+    <property name="options.lastSelected" value="preferences.sourceCode.Scala" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="RunManagerConfig.showSettingsBeforeRunnig" value="true" />
   </component>
-  <component name="RunManager" selected="ScalaTest.ImageTest">
-    <tempConfiguration default="false" name="ImageTest" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="simage.operations" />
+      <recent name="simage.parallel" />
+    </key>
+  </component>
+  <component name="RunManager" selected="ScalaTest.simage">
+    <tempConfiguration default="false" name="simage" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
       <module name="simage" />
-      <setting name="path" value="simage.structs.ImageTest" />
-      <setting name="package" value="" />
+      <setting name="path" value="" />
+      <setting name="package" value="simage" />
       <setting name="vmparams" value="" />
       <setting name="params" value="" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="52839" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method>
         <option name="Make" value="true" />
@@ -687,7 +662,7 @@
       <envs />
     </configuration>
     <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="ScalaTest.ImageTest" />
+      <item index="0" class="java.lang.String" itemvalue="ScalaTest.simage" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -735,7 +710,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Web Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" />
       <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" />
@@ -752,7 +727,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" />
       <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="11" side_tool="false" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="10" side_tool="false" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="2" side_tool="false" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32941177" sideWeight="0.5" order="2" side_tool="false" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" />
@@ -796,18 +771,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/scala/simage/structs/StrEl.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/cell.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/simage/Predef.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -818,13 +781,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/simage/structs/Matrix.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="18" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/simage/morphology/BasicMorphologyTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="6" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -843,23 +799,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/simage/morphology/Morphology.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/simage/operations/Morphology.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="7" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/simage/operations/Standard.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="3" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/simage/structs/ListMatrix.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="26" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -878,20 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/simage/operations/StandardTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="26" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/simage/structs/Splittable.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="18" selection-start="41" selection-end="42" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/simage/structs/Array2DMatrix.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="51" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0">
@@ -899,9 +827,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/simage/operations/StandardTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="14" selection-start="258" selection-end="258" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/simage/structs/ListMatrix.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="26" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/simage/structs/Image.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="19" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.507109">
+        <state line="45" column="19" selection-start="1148" selection-end="1148" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/simage/parallel/Splittable.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="18" selection-start="42" selection-end="43" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/simage/parallel/Operations.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/simage/operations/Standard.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="4" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/simage/operations/BasicMorphologyTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/simage/operations/PerfTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="119" selection-end="119" vertical-scroll-proportion="0.20895523">
           <folding />
         </state>
       </provider>

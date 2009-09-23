@@ -1,4 +1,4 @@
-package simage.morphology
+package simage.operations
 
 import structs.{StrEl, Image}
 
