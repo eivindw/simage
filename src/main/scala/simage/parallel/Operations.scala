@@ -5,10 +5,9 @@ import actors.Futures._
 object Operations {
 
    def parallel[T](obj: Splittable[T], op: (T) => Splittable[T]): Splittable[T] = {
-      val regions = obj.split
-      regions.size match {
-         case 1 => op(regions.first)
-         case _ => {
+      obj.split match {
+         case Array(region) => op(region)
+         case regions: Array[T] => {
             val futures = for(region <- regions) yield future {
                println("Thread running.." + Thread.currentThread.getId)
                op(region)
