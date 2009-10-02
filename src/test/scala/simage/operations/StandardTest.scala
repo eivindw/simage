@@ -29,8 +29,8 @@ class StandardTest extends Suite {
 
    def testDistAvgLoadSave {
       val img = loadImageCP("/cell.jpg")
-      avg(img, se)
-      //saveImage(avg(img, se), "target/cell_avg.jpg")
+      //avg(img, se)
+      saveImage(avg(img, se), "target/cell_avg.jpg")
    }
 
    def testDistributedAvg {
