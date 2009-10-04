@@ -33,38 +33,14 @@ class PrimitiveOpsTest extends Suite {
          new ArrayMatrix(nCols, range.toArray)
       }
 
-      def seOp3(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
-         val w = se.nCols / 2
-         val h = se.nRows / 2
-
-         def seValues(row: Int, col: Int) = {
-            for {
-               x <- -w to w
-               cx = col + x
-               y <- -h to h
-               ry = row + y
-               if(cx >= 0 && cx < nCols && ry >= 0 && ry < nRows)
-            } yield {
-               arr(cx + ry * nCols)
-            }
-         }
-         val newArr = Array.make(arr.size, 0)
-         for(j <- 0 until nCols; i <- 0 until nRows) {
-            println("Setting: " + (i + j * nCols) + " to: " + op(seValues(j, i)))
-            newArr(i + j * nCols) = op(seValues(j, i))
-         }
-         new ArrayMatrix(nCols, newArr)
-      }
-
       def seOp(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
          val w = se.nCols / 2
          val h = se.nRows / 2
 
-         def seValues(row: Int, col: Int) = {
-         }
          val newArr = Array.make(arr.size, 0)
+         var points: List[Int] = Nil
          for(j <- 0 until nCols; i <- 0 until nRows) {
-            var points: List[Int] = Nil
+            points = Nil
             for {
                x <- -w to w
                cx = i + x
@@ -75,7 +51,7 @@ class PrimitiveOpsTest extends Suite {
                points = arr(cx + ry * nCols) :: points
             }
             val avg = op(points)
-            println("Setting: " + (i + j * nCols) + " to: " + avg)
+            //println("Setting: " + (i + j * nCols) + " to: " + avg)
             newArr(i + j * nCols) = avg
          }
          new ArrayMatrix(nCols, newArr)
@@ -86,8 +62,8 @@ class PrimitiveOpsTest extends Suite {
       }
    }
 
-   val arr = (1 to 9).toArray
-   val arrMtx = new ArrayMatrix(3, arr)
+   val arr = (1 to 1000000).toArray
+   val arrMtx = new ArrayMatrix(1000, arr)
    val se = new ArrayMatrix(3, Array(1, 1, 1, 1, 1, 1, 1, 1, 1))
 
    def testAvgOperation {
