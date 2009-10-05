@@ -33,7 +33,7 @@ class PrimitiveOpsTest extends Suite {
          new ArrayMatrix(nCols, range.toArray)
       }
 
-      def seOp(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
+      def seOp3(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
          val w = se.nCols / 2
          val h = se.nRows / 2
 
@@ -50,9 +50,39 @@ class PrimitiveOpsTest extends Suite {
             } {
                points = arr(cx + ry * nCols) :: points
             }
-            val avg = op(points)
-            //println("Setting: " + (i + j * nCols) + " to: " + avg)
-            newArr(i + j * nCols) = avg
+            newArr(i + j * nCols) = op(points)
+         }
+         new ArrayMatrix(nCols, newArr)
+      }
+
+      def seOp(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
+         val w = se.nCols / 2
+         val h = se.nRows / 2
+
+         val newArr = Array.make(arr.size, 0)
+         var points: List[Int] = Nil
+         var j, i, x, y, cx, ry = 0
+         while(j < nCols) {
+            i = 0
+            while(i < nRows) {
+               points = Nil
+               x = -w
+               while(x <= w) {
+                  cx = i + x
+                  y = -h
+                  while(y <= h) {
+                     ry = j + y
+                     if(cx >= 0 && cx < nCols && ry >= 0 && ry < nRows) {
+                        points = arr(cx + ry * nCols) :: points
+                     }
+                     y = y + 1
+                  }
+                  x = x + 1
+               }
+               newArr(i + j * nCols) = op(points)
+               i = i + 1
+            }
+            j = j + 1
          }
          new ArrayMatrix(nCols, newArr)
       }
@@ -72,7 +102,19 @@ class PrimitiveOpsTest extends Suite {
    }
 
    def testAvgOperation2 {
-      val res = arrMtx.seOp2(se, (seq) => seq.reduceLeft(_ + _) / seq.size)
+      val res = arrMtx.seOp3(se, (seq) => seq.reduceLeft(_ + _) / seq.size)
       println(res)
+   }
+}
+
+object Time {
+   def apply[T](name: String)(block: => T) {
+      val start = System.currentTimeMillis
+      try {
+         block
+      } finally {
+         val diff = System.currentTimeMillis - start
+         println("# Block \"" + name + "\" completed, time taken: " + diff + " ms (" + diff / 1000.0 + " s)")
+      }
    }
 }
