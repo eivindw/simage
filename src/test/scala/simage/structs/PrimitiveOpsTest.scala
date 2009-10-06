@@ -102,19 +102,7 @@ class PrimitiveOpsTest extends Suite {
    }
 
    def testAvgOperation2 {
-      val res = arrMtx.seOp3(se, (seq) => seq.reduceLeft(_ + _) / seq.size)
+      val res = arrMtx.seOp2(se, (seq) => seq.reduceLeft(_ + _) / seq.size)
       println(res)
-   }
-}
-
-object Time {
-   def apply[T](name: String)(block: => T) {
-      val start = System.currentTimeMillis
-      try {
-         block
-      } finally {
-         val diff = System.currentTimeMillis - start
-         println("# Block \"" + name + "\" completed, time taken: " + diff + " ms (" + diff / 1000.0 + " s)")
-      }
    }
 }
