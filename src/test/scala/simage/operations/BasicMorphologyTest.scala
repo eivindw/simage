@@ -7,7 +7,7 @@ import io.SImageIO._
 import structs.{StrEl, Image, Matrix}
 
 class BasicMorphologyTest extends Suite {
-   def testBinaryErosion {
+   /*def testBinaryErosion {
       val img = Image(Matrix(5, List(
          0, 0, 0, 0, 0,
          0, 1, 1, 1, 0,
@@ -46,12 +46,12 @@ class BasicMorphologyTest extends Suite {
       val sse = StrEl(Square, 3)
 
       close(img, sse)
-      //saveImage(img - img2, "target/numbers_close_sub.png")
-      //saveImage(erode(img, sse), "target/rice_erode.png")
-      //saveImage(dilate(img, sse), "target/rice_dilate.png")
-      //saveImage(open(img, sse), "target/rice_open.png")
-      //saveImage(close(img, sse), "target/numbers_close.png")
-      //saveImage(topHat(img, sse), "target/numbers_tophat.png")
-      //saveImage(botHat(img, sse), "target/rice_bothat.png")
-   }
+      saveImage(img - img2, "target/numbers_close_sub.png")
+      saveImage(erode(img, sse), "target/rice_erode.png")
+      saveImage(dilate(img, sse), "target/rice_dilate.png")
+      saveImage(open(img, sse), "target/rice_open.png")
+      saveImage(close(img, sse), "target/numbers_close.png")
+      saveImage(topHat(img, sse), "target/numbers_tophat.png")
+      saveImage(botHat(img, sse), "target/rice_bothat.png")
+   }*/
 }

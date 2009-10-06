@@ -4,7 +4,6 @@ import org.scalatest.Suite
 import structs.{Image, Matrix, StrEl}
 import structs.StrElType._
 import io.SImageIO._
-import Standard._
 
 class StandardTest extends Suite {
    val img = Image(Matrix(3, List(
@@ -18,22 +17,22 @@ class StandardTest extends Suite {
       6, 6, 7)))
 
    def testAvgFilter {
-      assert(imgExp == avgSimple(img, se))
+      assert(imgExp == img.avgSimple(se))
    }
 
    def testAvgLoadSave {
       val img = loadImageCP("/cell.jpg")
-      avgSimple(img, se)
+      img.avgSimple(se)
       //saveImage(avg(img, se), "target/cell_avg.jpg")
    }
 
    def testDistAvgLoadSave {
       val img = loadImageCP("/cell.jpg")
-      //avg(img, se)
-      saveImage(avg(img, se), "target/cell_avg.jpg")
+      //img.avg(se)
+      saveImage(img.avg(se), "target/cell_avg.jpg")
    }
 
    def testDistributedAvg {
-      assert(imgExp == avg(img, se))
+      assert(imgExp == img.avg(se))
    }
 }
