@@ -49,7 +49,7 @@ trait Matrix[T] extends Splittable[MatrixWindow] {
       nCols * nRows match {
          case x if x < SPLIT_THRESHOLD => Array(MTX_WIN)
          case _ => {
-            val splitVals = Array(4, 5, 6, 7, 3, 2)
+            val splitVals = Array(2, 4, 5, 6, 7, 3, 2)
             val sVal = splitVals.find(nRows % _ == 0)
             val step = nRows / sVal.get
 

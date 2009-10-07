@@ -4,6 +4,7 @@ import org.scalatest.Suite
 import structs.{Image, Matrix, StrEl}
 import structs.StrElType._
 import io.SImageIO._
+import util.Time
 
 class StandardTest extends Suite {
    val img = Image(Matrix(3, List(
@@ -20,19 +21,23 @@ class StandardTest extends Suite {
       assert(imgExp == img.avgSimple(se))
    }
 
+   def testDistributedAvg {
+      assert(imgExp == img.avg(se))
+   }
+
    def testAvgLoadSave {
       val img = loadImageCP("/cell.jpg")
-      img.avgSimple(se)
+      Time("Regular avg"){
+         img.avgSimple(se)
+      }
       //saveImage(avg(img, se), "target/cell_avg.jpg")
    }
 
    def testDistAvgLoadSave {
       val img = loadImageCP("/cell.jpg")
-      //img.avg(se)
-      saveImage(img.avg(se), "target/cell_avg.jpg")
-   }
-
-   def testDistributedAvg {
-      assert(imgExp == img.avg(se))
+      Time("Distributed avg"){
+         img.avg(se)
+      }
+      //saveImage(img.avg(se), "target/cell_avg.jpg")
    }
 }
