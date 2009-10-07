@@ -8,9 +8,9 @@ import javax.imageio.ImageIO
 import structs.{Image, Matrix}
 
 object SImageIO {
-   def loadImageCP(name: String): Image = loadImage(ImageIO.read(getClass.getResourceAsStream(name)))
+   def loadImageCP(name: String) = loadImage(ImageIO.read(getClass.getResourceAsStream(name)))
 
-   def loadImage(name: String): Image = loadImage(ImageIO.read(new File(name)))
+   def loadImageFile(name: String) = loadImage(ImageIO.read(new File(name)))
 
    def saveImage(img: Image, name: String) {
       val rows = img.height
@@ -23,7 +23,7 @@ object SImageIO {
       ImageIO.write(buf, "png", new File(name))
    }
 
-   private def loadImage(img: BufferedImage): Image = {
+   private def loadImage(img: BufferedImage) = {
       val w = img.getWidth
       val db = img.getRaster.getDataBuffer
       val data = for (i <- 0 to db.getSize - 1) yield db.getElem(i)

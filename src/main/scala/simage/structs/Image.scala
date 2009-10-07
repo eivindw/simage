@@ -15,10 +15,6 @@ abstract class Image {
 
    //def +(other: Image): Image
 
-   def avg(se: StrEl[Int]): Image
-
-   def avgSimple(se: StrEl[Int]): Image
-
    def hasPoint(x: Int, y: Int) = x >= 0 && x < width && y >= 0 && y < height
 
    override def toString = "Image " + width + "x" + height
@@ -42,7 +38,9 @@ case class GrayScaleImage(d: Matrix[Int]) extends Image {
    /*def +(other: Image) = (this, other) match {
       case (GrayScaleImage(d1), GrayScaleImage(d2)) => Image(d1 + d2)
    }*/
+}
 
+trait StandardOpsImage extends GrayScaleImage {
    def avg(se: StrEl[Int]) = {
       import parallel.Operations._
       Image(parallel(
@@ -57,5 +55,5 @@ case class GrayScaleImage(d: Matrix[Int]) extends Image {
 }
 
 object Image {
-   def apply(d: Matrix[Int]) = new GrayScaleImage(d)
+   def apply(d: Matrix[Int]) = new GrayScaleImage(d) with StandardOpsImage
 }

@@ -26,7 +26,7 @@ class StandardTest extends Suite {
    }
 
    def testAvgLoadSave {
-      val img = loadImageCP("/cell.jpg")
+      val img = loadImageCP("/numbers.png")
       Time("Regular avg"){
          img.avgSimple(se)
       }
@@ -34,7 +34,7 @@ class StandardTest extends Suite {
    }
 
    def testDistAvgLoadSave {
-      val img = loadImageCP("/cell.jpg")
+      val img = loadImageCP("/numbers.png")
       Time("Distributed avg"){
          img.avg(se)
       }

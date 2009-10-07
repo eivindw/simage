@@ -32,7 +32,7 @@ class SImageIOTest extends Suite {
    def testSaveLoad {
       val m = Image(Matrix(3, List(0, 128, 0, 128, 255, 128, 0, 128, 0)))
       saveImage(m, "target/test.png")
-      val m2 = loadImage("target/test.png")
+      val m2 = loadImageFile("target/test.png")
       
       assert(m == m2)
    }
