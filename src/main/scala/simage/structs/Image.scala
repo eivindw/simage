@@ -1,6 +1,8 @@
 package simage.structs
 
-abstract class Image {
+import parallel.Operations._
+
+trait Image {
    type DataType
 
    val data: DataType
@@ -38,22 +40,16 @@ case class GrayScaleImage(d: Matrix[Int]) extends Image {
    /*def +(other: Image) = (this, other) match {
       case (GrayScaleImage(d1), GrayScaleImage(d2)) => Image(d1 + d2)
    }*/
-}
 
-trait StandardOpsImage extends GrayScaleImage {
-   def avg(se: StrEl[Int]) = {
-      import parallel.Operations._
-      Image(parallel(
-         data,
-         data.seOp(se, (seq) => seq.reduceLeft(_ + _) / seq.size, _: MatrixWindow)
-      ).asInstanceOf[DataType])
-   }
-
-   def avgSimple(se: StrEl[Int]) = {
-      Image(data.seOp(se, (seq) => seq.reduceLeft(_ + _) / seq.size))
+   def doParallelSeOp(op: (MatrixWindow) => Matrix[Int]) = {
+      Image(parallel(data, op).asInstanceOf[DataType])
    }
 }
 
 object Image {
-   def apply(d: Matrix[Int]) = new GrayScaleImage(d) with StandardOpsImage
+   import operations.{Morphology, Standard}
+
+   def apply(d: Matrix[Int]) = {
+      new GrayScaleImage(d) with Standard with Morphology
+   }
 }

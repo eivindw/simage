@@ -1,19 +1,23 @@
 package simage.operations
 
-import structs.{StrEl, Image}
+import structs.{MatrixWindow, GrayScaleImage, StrEl}
 
-object Morphology {
-   /*def erode(img: Image, se: StrEl[Int]) = img.seOp(se, (seq) => seq.reduceLeft(_ min _), img.max)
+trait Morphology { this: GrayScaleImage =>
+   def erode(se: StrEl[Int]) = {
+      doParallelSeOp(data.seOp(se, (seq: Seq[Int]) => seq.reduceLeft(_ min _), max, _: MatrixWindow))
+   }
 
-   def dilate(img: Image, se: StrEl[Int]) = img.seOp(se, (seq) => seq.reduceLeft(_ max _), img.min)
+   def dilate(se: StrEl[Int]) = {
+      doParallelSeOp(data.seOp(se, (seq: Seq[Int]) => seq.reduceLeft(_ max _), min, _: MatrixWindow))
+   }
 
-   def open(img: Image, se: StrEl[Int]) = dilate(erode(img, se), se)
+   def open(se: StrEl[Int]) = erode(se).dilate(se)
 
-   def close(img: Image, se: StrEl[Int]) = erode(dilate(img, se), se)
+   def close(se: StrEl[Int]) = dilate(se).erode(se)
 
-   def topHat(img: Image, se: StrEl[Int]) = img - open(img, se)
+   def topHat(se: StrEl[Int]) = this - open(se)
 
-   def botHat(img: Image, se: StrEl[Int]) = close(img, se) - img*/
+   def botHat(se: StrEl[Int]) = close(se) - this
 
    // morphGrad = dilate - erode
    // intGrad = img - erode

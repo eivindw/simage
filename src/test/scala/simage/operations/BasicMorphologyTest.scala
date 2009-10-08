@@ -2,12 +2,13 @@ package simage.operations
 
 import org.scalatest.Suite
 import structs.StrElType._
-import Morphology._
 import io.SImageIO._
 import structs.{StrEl, Image, Matrix}
 
 class BasicMorphologyTest extends Suite {
-   /*def testBinaryErosion {
+   private val sse = StrEl(Square, 3)
+
+   def testBinaryErosion {
       val img = Image(Matrix(5, List(
          0, 0, 0, 0, 0,
          0, 1, 1, 1, 0,
@@ -34,24 +35,21 @@ class BasicMorphologyTest extends Suite {
          0, 0, 0, 0, 0)))
       val hse = StrEl(HLine, 3)
       val vse = StrEl(VLine, 3)
-      val sse = StrEl(Square, 3)
 
-      assert(imgHse == erode(img, hse))
-      assert(imgVse == erode(img, vse))
-      assert(imgSse == erode(img, sse))
+      assert(imgHse == img.erode(hse))
+      assert(imgVse == img.erode(vse))
+      assert(imgSse == img.erode(sse))
    }
 
    def testGrayScale {
-      val img = loadImageCP("/small_grad.png")
-      val sse = StrEl(Square, 3)
+      val base = "rice"
+      val img = loadImageCP("/" + base + ".gif")
 
-      close(img, sse)
-      saveImage(img - img2, "target/numbers_close_sub.png")
-      saveImage(erode(img, sse), "target/rice_erode.png")
-      saveImage(dilate(img, sse), "target/rice_dilate.png")
-      saveImage(open(img, sse), "target/rice_open.png")
-      saveImage(close(img, sse), "target/numbers_close.png")
-      saveImage(topHat(img, sse), "target/numbers_tophat.png")
-      saveImage(botHat(img, sse), "target/rice_bothat.png")
-   }*/
+      saveImage(img.erode(sse), "target/" + base + "_erode.png")
+      saveImage(img.dilate(sse), "target/" + base + "_dilate.png")
+      saveImage(img.open(sse), "target/" + base + "_open.png")
+      saveImage(img.close(sse), "target/" + base + "_close.png")
+      saveImage(img.topHat(sse), "target/" + base + "_tophat.png")
+      saveImage(img.botHat(sse), "target/" + base + "_bothat.png")
+   }
 }

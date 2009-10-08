@@ -34,6 +34,12 @@ trait Matrix[T] extends Splittable[MatrixWindow] {
    def seOp(se: StrEl[Int], op: (Seq[T]) => T, region: MatrixWindow): Matrix[T] =
       seOp(se, op, false, defFill, region)
 
+   def seOp(se: StrEl[Int], op: (Seq[T]) => T, fill: T): Matrix[T] =
+      seOp(se, op, true, fill, MTX_WIN)
+
+   def seOp(se: StrEl[Int], op: (Seq[T]) => T, fill: T, region: MatrixWindow): Matrix[T] =
+      seOp(se, op, true, fill, region)
+
    protected def seOp(
       se: StrEl[Int],
       op: (Seq[T]) => T,
