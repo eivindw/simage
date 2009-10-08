@@ -8,12 +8,17 @@ object PrimitiveOpsTest extends Application {
    val se = new ArrayMatrix(3, Array(1, 1, 1, 1, 1, 1, 1, 1, 1))
 
    Time("While loops"){
-      val res = arrMtx.seOp(se, (seq) => seq.reduceLeft(_ + _) / seq.size)
+      val res = arrMtx.seOp3(se, (seq) => seq.reduceLeft(_ + _) / seq.size)
+      println(res)
+   }
+
+   Time("For comprehensions w/o yield"){
+      val res = arrMtx.seOp2(se, (seq) => seq.reduceLeft(_ + _) / seq.size)
       println(res)
    }
 
    Time("For comprehensions"){
-      val res = arrMtx.seOp2(se, (seq) => seq.reduceLeft(_ + _) / seq.size)
+      val res = arrMtx.seOp(se, (seq) => seq.reduceLeft(_ + _) / seq.size)
       println(res)
    }
 }
@@ -26,7 +31,7 @@ class ArrayMatrix(cols: Int, array: Array[Int]) {
 
    def apply(i: Int, j: Int) = arr(i + j * nCols)
 
-   def seOp2(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
+   def seOp(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
       val w = se.nCols / 2
       val h = se.nRows / 2
 
@@ -47,7 +52,7 @@ class ArrayMatrix(cols: Int, array: Array[Int]) {
       new ArrayMatrix(nCols, range.toArray)
    }
 
-   def seOp3(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
+   def seOp2(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
       val w = se.nCols / 2
       val h = se.nRows / 2
 
@@ -69,7 +74,7 @@ class ArrayMatrix(cols: Int, array: Array[Int]) {
       new ArrayMatrix(nCols, newArr)
    }
 
-   def seOp(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
+   def seOp3(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
       val w = se.nCols / 2
       val h = se.nRows / 2
 
