@@ -28,6 +28,10 @@
          <name>Scala-Tools Maven2 Repository</name>
          <url>http://scala-tools.org/repo-releases</url>
       </repository>
+      <repository>
+         <id>nativelibs4java</id>
+         <url>http://nativelibs4java.sourceforge.net/maven</url>
+      </repository>
    </repositories>
    <pluginRepositories>
       <pluginRepository>
@@ -47,6 +51,12 @@
          <artifactId>scalatest</artifactId>
          <version>0.9.5</version>
          <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>com.nativelibs4java</groupId>
+         <artifactId>OpenCL4Java</artifactId>
+         <version>1.0-SNAPSHOT</version>
+         <scope>compile</scope>
       </dependency>
    </dependencies>
    <build>

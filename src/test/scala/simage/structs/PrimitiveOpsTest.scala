@@ -2,9 +2,12 @@ package simage.structs
 
 import util.Time
 
+import scalacl._
+import scalacl.ScalaCL._
+
 object PrimitiveOpsTest extends Application {
-   val arr = (1 to 1000000).toArray
-   val arrMtx = new ArrayMatrix(1000, arr)
+   val arr = (1 to 9).toArray
+   val arrMtx = new ArrayMatrix(3, arr)
    val se = new ArrayMatrix(3, Array(1, 1, 1, 1, 1, 1, 1, 1, 1))
 
    Time("While loops"){
@@ -21,6 +24,11 @@ object PrimitiveOpsTest extends Application {
       val res = arrMtx.seOp(se, (seq) => seq.reduceLeft(_ + _) / seq.size)
       println(res)
    }
+
+   Time("ScalaCL implementation"){
+      val res = arrMtx.seOpOCL(se, (seq) => seq.reduceLeft(_ + _) / seq.size)
+      println(res)
+   }
 }
 
 class ArrayMatrix(cols: Int, array: Array[Int]) {
@@ -30,6 +38,28 @@ class ArrayMatrix(cols: Int, array: Array[Int]) {
    val nCols = cols
 
    def apply(i: Int, j: Int) = arr(i + j * nCols)
+
+   def seOpOCL(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
+      val prog = new SeOpOCL(Dim(arr.size))
+
+      prog.iarr.write(arr)
+      //prog.se.write(se.arr)
+      prog !
+
+      val newArr = Array.make(arr.size, 0)
+      for(i <- 0 until arr.size) {
+         newArr(i) = prog.output.get(i)
+      }
+      new ArrayMatrix(nCols, newArr)
+   }
+
+   class SeOpOCL(i: Dim) extends Program(i) {
+      val iarr = IntsVar
+      //val se = IntsVar
+      var output = IntsVar
+
+      content = output(i) := (iarr(i - 1) + iarr(i) + iarr(i + 1)) / 3
+   }
 
    def seOp(se: ArrayMatrix, op: (Seq[Int]) => Int) = {
       val w = se.nCols / 2
@@ -107,6 +137,6 @@ class ArrayMatrix(cols: Int, array: Array[Int]) {
    }
 
    override def toString = {
-      nRows + "x" + nCols + " matrix"
+      nRows + "x" + nCols + " matrix\n" + arr.toList
    }
 }
