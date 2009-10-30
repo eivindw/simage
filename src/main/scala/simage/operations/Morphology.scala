@@ -1,14 +1,14 @@
 package simage.operations
 
-import structs.{MatrixWindow, GrayScaleImage, StrEl}
+import structs.{GrayScaleImage, StrEl}
 
 trait Morphology { this: GrayScaleImage =>
    def erode(se: StrEl[Int]) = {
-      doParallelSeOp(data.seOp(se, (seq: Seq[Int]) => seq.reduceLeft(_ min _), max, _: MatrixWindow))
+      doParallelSeOp(data.seOpWin(se, (seq: Seq[Int]) => seq.reduceLeft(_ min _), max) _)
    }
 
    def dilate(se: StrEl[Int]) = {
-      doParallelSeOp(data.seOp(se, (seq: Seq[Int]) => seq.reduceLeft(_ max _), min, _: MatrixWindow))
+      doParallelSeOp(data.seOpWin(se, (seq: Seq[Int]) => seq.reduceLeft(_ max _), min) _)
    }
 
    def open(se: StrEl[Int]) = erode(se).dilate(se)

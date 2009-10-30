@@ -45,7 +45,7 @@ class Array2DMatrixTest extends Suite {
       val mtxExp3 = Matrix(3, Array(6, 6, 7))
       val win3 = new MatrixWindow((2, 0), (2, 2))
 
-      val op = mtx.seOp(se, (seq: Seq[Int]) => seq.reduceLeft(_ + _) / seq.size, _: MatrixWindow)
+      val op = mtx.seOpWin(se, (seq: Seq[Int]) => seq.reduceLeft(_ + _) / seq.size) _
 
       println(op(win1))
       println(op(win2))

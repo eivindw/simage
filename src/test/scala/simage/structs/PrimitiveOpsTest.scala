@@ -5,7 +5,7 @@ import util.Time
 object PrimitiveOpsTest extends Application {
    val arr = (1 to 1000000).toArray
    val arrMtx = new ArrayMatrix(1000, arr)
-   val se = new ArrayMatrix(3, Array(1, 1, 1, 1, 1, 1, 1, 1, 1))
+   val se = new ArrayMatrix(3, Array.make(9, 1))
 
    Time("While loops"){
       val res = arrMtx.seOp3(se, (seq) => seq.reduceLeft(_ + _) / seq.size)
