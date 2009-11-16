@@ -9,7 +9,7 @@ object Operations {
          case Array(region) => op(region)
          case regions: Array[T] => {
             val futures = for(region <- regions) yield future {
-               println("Thread running.." + Thread.currentThread.getId)
+               //println("Thread running.." + Thread.currentThread.getId)
                op(region)
             }
             val results = awaitAll(5000, futures: _*)
