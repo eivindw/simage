@@ -25,7 +25,7 @@ class ScalaCLTest extends Suite {
       content = output := iarr + iarr2
    }
 
-   def testAvg = {
+   def testAvg {
       Time("Brute force implementation"){
          val res = arrMtx + arrMtx
          println(res)

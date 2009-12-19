@@ -63,6 +63,8 @@ trait Matrix[T] extends Splittable[MatrixWindow] {
          }
       }
    }
+
+   def toArray: Array[T]
 }
 
 object Matrix {

@@ -28,6 +28,8 @@ abstract class Array2DMatrix[T](cols: Int, els: Array[T]) extends Matrix[T] {
    protected def subElems(a: T, b: T): T
 
    protected def toMatrix(cols: Int, els: Array[T]): Array2DMatrix[T]
+
+   def toArray = arr
 }
 
 case class IntArray2DMatrix(cols: Int, els: Array[Int]) extends Array2DMatrix[Int](cols, els) {
