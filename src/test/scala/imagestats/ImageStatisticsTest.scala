@@ -16,6 +16,6 @@ class ImageStatisticsTest extends Suite {
          DataSet(img.data.toArray: _*)
       }
 
-      assert(7 === img.average)
+      assert(7 === img.average.round)
    }
 }

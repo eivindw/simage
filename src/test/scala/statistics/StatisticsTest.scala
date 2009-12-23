@@ -9,4 +9,16 @@ class StatisticsTest extends Suite {
 
       assert(5 === ds.average)
    }
+
+   def testStringAvg {
+      val words = Array("eivind", "test", "oslo", "bekk", "scala", "elephant", "cat")
+
+      implicit def str2DS(str: Array[String]) = {
+         DataSet(str.map(_.length): _*)
+      }
+
+      assert(5 === words.average.round)
+      assert(3 === words.min)
+      assert(8 === words.max)
+   }
 }
