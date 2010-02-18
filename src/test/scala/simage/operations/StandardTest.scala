@@ -1,9 +1,9 @@
 package simage.operations
 
 import org.scalatest.Suite
-import structs.{Image, Matrix, StrEl}
 import structs.StrElType._
 import io.SImageIO._
+import structs.{GrayScaleImage, Image, Matrix, StrEl}
 import util.Time
 
 class StandardTest extends Suite {
@@ -11,7 +11,7 @@ class StandardTest extends Suite {
       1, 2, 3,
       4, 5, 6,
       7, 8, 9)))
-   val se = StrEl(Square, 3)
+   val se: StrEl[Int] = StrEl(Square, 3)
    val imgExp = Image(Matrix(3, List(
       3, 3, 4,
       4, 5, 5,
@@ -26,9 +26,10 @@ class StandardTest extends Suite {
    }
 
    def testAvgLoadSave {
-      val img = loadImageCP("/numbers.png")
+      val img: GrayScaleImage with Standard = loadImageCP("/numbers.png")
       Time("Regular avg"){
-         img.avgSimple(se)
+         val imgResult: Image = img.avgSimple(se)
+         println("Hmm")
       }
       //saveImage(avg(img, se), "target/cell_avg.jpg")
    }
