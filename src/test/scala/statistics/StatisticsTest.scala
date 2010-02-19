@@ -19,7 +19,7 @@ class StatisticsTest extends Suite {
          DataSet(str.map(_.length): _*)
       }
 
-      assert(5 === words.average.round)
+      assert(4.857142857142857 === words.average)
       assert(3 === words.minValue)
       assert(8 === words.maxValue)
    }

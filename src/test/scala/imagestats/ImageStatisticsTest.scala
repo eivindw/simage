@@ -16,7 +16,7 @@ class ImageStatisticsTest extends Suite {
          DataSet(img.data.toArray: _*)
       }
 
-      assert(7 === img.average.round)
+      assert(7.222222222222222 === img.average)
       assert(5 === img.minValue)
       assert(9 === img.maxValue)
    }
