@@ -12,6 +12,12 @@ class StatisticsTest extends Suite {
       assert(9 === ds.maxValue)
    }
 
+   def testSimpleAvg2 {
+      val ds = DataSet(1, 2, 3, 4, 5, 6)
+
+      println("Dice average: " + ds.average)
+   }
+
    def testStringAvg {
       val words = Array("eivind", "test", "oslo", "bekk", "scala", "elephant", "cat")
 
