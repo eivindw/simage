@@ -10,7 +10,7 @@ abstract class Array2DMatrix[T](cols: Int, els: Array[T]) extends Matrix[T] {
 
    def apply(i: Int, j: Int) = arr(i + j * nCols)
 
-   override def toString: String = "Array2D rows:" + nRows + " cols:" + nCols + "\n" + arr.toString
+   //override def toString: String = "Array2D rows:" + nRows + " cols:" + nCols + "\n" + arr.toString
 
    def -(other: Matrix[T]): Matrix[T] = (this, other) match {
       case (t: Array2DMatrix[_], o: Array2DMatrix[_]) => {
