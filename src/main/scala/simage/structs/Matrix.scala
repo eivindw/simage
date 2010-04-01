@@ -67,6 +67,8 @@ trait Matrix[T] extends Splittable[MatrixWindow] {
    override def toString: String = "Matrix rows:" + nRows + " cols:" + nCols
 
    def toArray: Array[T]
+
+   def toList = toArray.toList
 }
 
 object Matrix {
