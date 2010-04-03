@@ -1,6 +1,7 @@
 package imagechart
 
-import org.jfree.chart.{JFreeChart, ChartPanel, ChartFactory}
+import java.io.File
+import org.jfree.chart.{ChartUtilities, JFreeChart, ChartPanel, ChartFactory}
 import org.jfree.ui.{ApplicationFrame, RefineryUtilities}
 import org.jfree.data.category.DefaultCategoryDataset
 import org.jfree.chart.plot.PlotOrientation
@@ -11,8 +12,7 @@ import simage.structs.GrayScaleImage
 class HistogramTest extends Suite {
 
    def testLoadImageShowHistogram {
-      val img = loadImageCP("/numbers.png")
-      println(img)
+      val img = loadImageCP("/cell.jpg")
 
       implicit def img2DS(img: GrayScaleImage) = {
          val dataset = new DefaultCategoryDataset
@@ -23,10 +23,19 @@ class HistogramTest extends Suite {
          dataset
       }
 
+      val chart = ChartFactory.createAreaChart(
+         null, null, null, img, PlotOrientation.VERTICAL, false, true, true)
+
+      val axis = chart.getCategoryPlot.getDomainAxis
+      axis.setLowerMargin(0.0)
+      axis.setUpperMargin(0.0)
+      axis.setTickLabelsVisible(false)
+
+      ChartUtilities.saveChartAsPNG(new File("hist.png"), chart, 500, 500)
+
       createShowWindow(
-         "Line Chart Demo",
-         ChartFactory.createAreaChart(
-            "Test Line Chart", "Value", "Number", img, PlotOrientation.VERTICAL, false, true, true))
+         "Histogram Window",
+         chart)
    }
 
    def createShowWindow(title: String, chart: JFreeChart) {
