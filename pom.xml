@@ -85,8 +85,8 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
                <excludes>
-                  <exclude>**/GeneralParallelTest.scala</exclude>
-                  <exclude>**/StandardTest.scala</exclude>
+                  <exclude>**/GeneralParallelTest*</exclude>
+                  <exclude>**/StandardTest*</exclude>
                </excludes>
             </configuration>
          </plugin>
