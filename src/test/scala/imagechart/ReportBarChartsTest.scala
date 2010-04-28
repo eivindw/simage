@@ -1,6 +1,5 @@
 package imagechart
 
-import imagechart.HistogramTest
 import java.io.File
 import org.jfree.chart.{ChartUtilities, JFreeChart, ChartPanel, ChartFactory}
 import org.jfree.ui.{ApplicationFrame, RefineryUtilities}
@@ -13,29 +12,25 @@ import simage.structs.GrayScaleImage
 class ReportBarChartsTest extends Suite {
 
    def testLoadImageShowHistogram {
-      val img = loadImageCP("/numbers.png")
+      val dataset = new DefaultCategoryDataset
+      dataset.setValue(8, "Java", 1)
+      dataset.setValue(398, "Groovy", 2)
+      dataset.setValue(1071, "JRuby", 3)
+      dataset.setValue(18, "Scala", 4)
+      dataset.setValue(186, "Clojure", 5)
 
-      implicit def img2DS(img: GrayScaleImage) = {
-         val dataset = new DefaultCategoryDataset
-         val imgData = img.data.toList
-         for(i <- img.min to img.max) {
-            dataset.setValue(imgData.count(_ == i), "img", i)
-         }
-         dataset
-      }
-
-      val chart = ChartFactory.createAreaChart(
-         null, null, null, img, PlotOrientation.VERTICAL, false, true, true)
+      val chart = ChartFactory.createBarChart(
+         null, null, null, dataset, PlotOrientation.VERTICAL, false, true, true)
 
       val axis = chart.getCategoryPlot.getDomainAxis
       axis.setLowerMargin(0.0)
       axis.setUpperMargin(0.0)
       axis.setTickLabelsVisible(false)
 
-      ChartUtilities.saveChartAsPNG(new File("/tmp/hist.png"), chart, 500, 500)
+      ChartUtilities.saveChartAsPNG(new File("/tmp/langcomp.png"), chart, 500, 500)
 
       createShowWindow(
-         "Histogram Window",
+         "Barchart Window",
          chart)
    }
 

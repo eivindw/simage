@@ -12,7 +12,7 @@ object SImageIO {
 
    def loadImageFile(name: String) = loadImage(ImageIO.read(new File(name)))
 
-   def saveImage(img: Image, name: String) {
+   def saveImage(img: Image[Int], name: String) {
       val rows = img.height
       val cols = img.width
       val buf = new BufferedImage(cols, rows, TYPE_BYTE_GRAY)

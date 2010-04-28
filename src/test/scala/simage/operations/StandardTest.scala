@@ -16,6 +16,7 @@ class StandardTest extends Suite {
       3, 3, 4,
       4, 5, 5,
       6, 6, 7)))
+   val file = "/numbers.png"
 
    def testAvgFilter {
       assert(imgExp == img.avgSimple(se))
@@ -26,18 +27,17 @@ class StandardTest extends Suite {
    }
 
    def testAvgLoadSave {
-      val img: GrayScaleImage with Standard = loadImageCP("/numbers.png")
+      val img = loadImageCP(file)
       Time("Regular avg"){
-         val imgResult: Image = img.avgSimple(se)
-         println("Hmm")
+         println(img.avgSimple(se))
       }
       //saveImage(avg(img, se), "target/cell_avg.jpg")
    }
 
    def testDistAvgLoadSave {
-      val img = loadImageCP("/numbers.png")
+      val img = loadImageCP(file)
       Time("Distributed avg"){
-         img.avg(se)
+         println(img.avg(se))
       }
       //saveImage(img.avg(se), "target/cell_avg.jpg")
    }
